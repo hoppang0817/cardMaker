@@ -7,3 +7,5 @@ class AuthService {
     return firebase.auth().signInWithPopup(authProvider);
   }
 }
+
+export default AuthService;
