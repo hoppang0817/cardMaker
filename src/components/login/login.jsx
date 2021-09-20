@@ -1,17 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useHistory } from 'react-router';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 import style from './login.module.css';
 
-const Login = ({ authService }) => {
+const Login = ({ authService, baseName }) => {
+    const history = useHistory();
+    const goHome = userId => {
+        history.push({
+            pathname:  baseName + '/home',
+            state:{id: userId},
+        })
+    }
     const onLogin = (event) => {
         authService//
             .login(event.currentTarget.textContent)
-            .then(console.log);
+            .then(data =>goHome(data.user.uid));
     }
+
+    //컴포넌트가 업데이트되거나 다시 마운트 될때 사용자의 상태에 따라 홈화면으로 갈지를 판단
+    useEffect(() => {
+        authService.onAuthChange(user => {
+            user && goHome(user.uid);
+        })
+    })
+
     return (
         <section>
-            <Header />
+            <Header/>
             <section className={style.login}>
                 <h1>Login</h1>
                 <ul className={style.list}>
