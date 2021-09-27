@@ -6,7 +6,7 @@ import style from './login.module.css';
 
 const Login = ({ authService, baseName }) => {
     const history = useHistory();
-    const goHome = userId => {
+    const goToHome = userId => {
         history.push({
             pathname:  baseName + '/home',
             state:{id: userId},
@@ -15,13 +15,13 @@ const Login = ({ authService, baseName }) => {
     const onLogin = (event) => {
         authService//
             .login(event.currentTarget.textContent)
-            .then(data =>goHome(data.user.uid));
+            .then(data =>goToHome(data.user.uid));
     }
 
     //컴포넌트가 업데이트되거나 다시 마운트 될때 사용자의 상태에 따라 홈화면으로 갈지를 판단
     useEffect(() => {
         authService.onAuthChange(user => {
-            user && goHome(user.uid);
+            user && goToHome(user.uid);
         })
     })
 

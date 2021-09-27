@@ -1,8 +1,6 @@
 //로그인 역활만함
 import firebase from 'firebase/app';
-import { Link } from 'react-router-dom';
 import firebaseApp from './firebase';
-const baseName = '/cardMaker';
 
 class AuthService {
   //로그인

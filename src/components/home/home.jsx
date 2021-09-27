@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import { useHistory } from 'react-router';
+import styles from './home.module.css';
+import Editor from '../editor/editor';
+import Preview from '../preview/preview';
 const Home = ({ authService,baseName }) => {
     const history = useHistory();
     const onLogout = () => {
@@ -15,11 +18,12 @@ const Home = ({ authService,baseName }) => {
         })
     })
     return (
-        <section>
+        <section className={styles.home}>
             <Header onLogout={onLogout} />
-            <section>
-                <p>바디</p>
-            </section>
+            <div className={styles.body}>
+                <Editor />
+                <Preview/>
+            </div>
             <Footer />
         </section>
     )
