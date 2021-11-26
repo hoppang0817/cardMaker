@@ -1,0 +1,13 @@
+.Image_file_input {
+  background-color: makerGreen;
+  color: makerWhite;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.5em;
+  flex: 1 1 50%; /*비율을 1대1로 비중은 50%로*/
+  font-size: 0.8rem;
+}
+
+.Image_file_input:hover {
+  opacity: 0.8;
+}
