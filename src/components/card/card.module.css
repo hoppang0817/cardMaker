@@ -1,0 +1,63 @@
+@value makerBlack,makerWhite,makerColorful,makerWheat,makerShadow from '../../common/colors.css';
+
+.card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 1em;
+  padding: 0.2em 0;
+  box-shadow: makerShadow;
+  max-width: 30rem;
+}
+.info {
+  width: 100%;
+}
+
+.image {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
+  margin-right: 1.5em;
+  margin-left: 1.5em;
+}
+
+.card.drak {
+  background-color: makerBlack;
+  color: makerWhite;
+}
+
+.card.light {
+  background-color: makerWhite;
+}
+
+.card.colorful {
+  background: makerColorful;
+}
+
+.name,
+.conpany,
+.title,
+.email,
+.massage {
+  margin: 0;
+  font-size: 0.8rem;
+  margin-bottom: 0.2em;
+}
+
+.name {
+  font-size: 1.2em;
+}
+.conpany {
+  margin-bottom: 1em;
+}
+
+/* 컴퍼니 뒤에 새로운 컨텐트 추가 */
+.conpany::after {
+  content: '';
+  display: block;
+  width: 90%;
+  height: 2px;
+  background-color: makerWheat;
+  transform: translateY(0.5em);
+}
